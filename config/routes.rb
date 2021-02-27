@@ -4,6 +4,6 @@ Rails.application.routes.draw do
                                              registration: 'signup', sign_up: '' },
                      controllers: { sessions: 'users/sessions', registrations: 'users/registrations' },
                      defaults: { format: :json }
-
+  get '/user', to: 'users#show'
   resources :entries, except: [:update]
 end

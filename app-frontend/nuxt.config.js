@@ -37,10 +37,24 @@ module.exports = {
       }
     }
   },
-  modules: ["@nuxtjs/vuetify", "@nuxtjs/axios"],
+  modules: ["@nuxtjs/vuetify", "@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
     host: "localhost",
-    port: 8080,
-    prefix: "/api"
+    port: 3000
+  },
+  auth: {
+    endpoints: {
+      login: { url: "/login", method: "post", propertyName: "token" },
+      logout: { url: "/logout", method: "delete" },
+      user: { url: "/user" }
+    },
+    token: {
+      property: false,
+      required: true,
+      type: "Bearer"
+    },
+    user: {
+      property: false
+    }
   }
 };

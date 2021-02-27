@@ -3,10 +3,12 @@ class EntriesController < ApplicationController
 
   def index
     @entries = current_user.entries
+    render :index, status: :ok
   end
 
   def show
     @entry = current_user.entries.find_by(id: params[:id])
+    render :show, status: :ok
   end
 
   def create
